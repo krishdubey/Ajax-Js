@@ -1,0 +1,27 @@
+<html>
+    <body>
+     
+        <h2> The XMLHttpRequest Object</h2>
+        
+        <button type="button" onclick="loadDoc()">Click it</button>
+       
+        <p id="demo"></p>
+
+        <script>
+        function loadDoc()
+        {
+            var req = new XMLHttpRequest();
+            req.open('GET','index.html',true);
+            req.send();
+           
+            req.onreadystatechange = function(){
+             if(req.readyState == 4 && req.status == 200)
+             {
+                 document.getElementById('demo').innerHTML = req.responseText;
+             }
+            }
+        }
+        //responseText = get the response data as a string
+        </script>
+    </body>
+</html>
